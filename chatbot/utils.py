@@ -2,7 +2,7 @@
 import os
 import pandas as pd
 from docx import Document  # Importer python-docx pour traiter les fichiers .docx
-from chatbot.config import EXCEL_DIRECTORY, WORD_DIRECTORY  # Assurez-vous d'ajouter WORD_DIRECTORY ici
+from chatbot.config import EXCEL_DIRECTORY  # Assurez-vous d'ajouter WORD_DIRECTORY ici
 
 def load_text_data():
     texts = {}
