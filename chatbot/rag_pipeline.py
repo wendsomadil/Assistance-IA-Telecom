@@ -145,7 +145,7 @@ def generate_answer_with_gemini(question, context):
     try:
         model = genai.GenerativeModel("gemini-1.5-flash")
         prompt = (
-            f"Vous êtes un expert en réglementation télécom et droit des télécommunications. "
+            f"Vous êtes un expert en réglementation télécom et droit des télécommunications au Burkina Faso. "
             f"Répondez de manière professionnelle et précise.\n\n"
             f"Contexte : {context}\n\n"
             f"Question : {question}\n\n"
