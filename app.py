@@ -6,6 +6,10 @@ from chatbot.utils import load_text_data
 from chatbot.memory import ChatMemory
 import base64
 import time
+import sys
+
+# Ajouter le répertoire 'chatbot' au sys.path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'chatbot')))
 
 # Configurer le titre et les métadonnées de la page
 st.set_page_config(
