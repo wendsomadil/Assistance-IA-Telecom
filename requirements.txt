@@ -16,3 +16,4 @@ pdfminer.six
 PyMuPDF
 pytesseract
 pdfplumber
+python-docx
