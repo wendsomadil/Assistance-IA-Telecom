@@ -8,7 +8,6 @@ load_dotenv()
 # Définir les répertoires pour les fichiers PDF et Excel
 PDF_DIRECTORY = "C:/Users/HP/Citadel/id-fid-3/pdf_files" 
 EXCEL_DIRECTORY = "C:/Users/HP/Citadel/id-fid-3/output/excel"
-WORD_DIRECTORY = "C:/Users/HP/Citadel/id-fid-3/output/word" 
 FAISS_INDEX_PATH = os.path.join(EXCEL_DIRECTORY, "faiss_index.bin")
 
 # Créer le répertoire Excel si nécessaire
