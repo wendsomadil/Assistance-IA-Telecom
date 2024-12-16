@@ -1,0 +1,164 @@
+/* styles.css */
+
+/* Style général du corps */
+body {
+    font-family: 'Roboto', Arial, sans-serif; /* Roboto pour un look moderne et professionnel */
+    background-color: #f5f7fa; /* Fond légèrement gris pour un contraste doux */
+    color: #2c3e50; /* Couleur du texte principale en gris foncé */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6; /* Espacement entre les lignes pour une meilleure lisibilité */
+}
+
+/* Titre principal */
+.main-title {
+    text-align: center;
+    font-size: 3.2em;
+    color: #1e3a5f; /* Bleu foncé professionnel */
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    text-transform: uppercase; /* Texte en majuscule pour l'impact visuel */
+    letter-spacing: 2px; /* Espacement entre les lettres */
+}
+
+/* Sous-titre */
+.subtitle {
+    text-align: center;
+    font-size: 1.5em;
+    color: #34495e; /* Gris bleuté élégant */
+    margin-bottom: 1.5em;
+    font-weight: 300; /* Texte plus léger pour le contraste avec le titre */
+}
+
+/* Images */
+.ia_telecom, .citadel {
+    max-width: 80%; /* Réduit la taille maximale pour les grands écrans */
+    height: auto;
+    display: block;
+    margin: 1.5em auto; /* Centrage vertical et horizontal */
+    border-radius: 12px; /* Coins légèrement arrondis pour une esthétique moderne */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre douce pour un effet flottant */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ia_telecom:hover, .citadel:hover {
+    transform: scale(1.05); /* Zoom subtil au survol */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus marquée au survol */
+}
+
+/* Boîte de question */
+.question-box {
+    margin: 1.5em auto;
+    padding: 1.5em;
+    border: 2px solid #bdc3c7; /* Bordure grise légère */
+    border-radius: 10px; /* Coins arrondis pour une apparence conviviale */
+    background-color: #ffffff; /* Fond blanc pour une apparence propre */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Ombre discrète */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.question-box:hover {
+    border-color: #3498db; /* Bordure bleue au survol */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Accentuation de l'ombre */
+}
+
+/* Boîte de réponse */
+.response-box {
+    margin-top: 2em;
+    padding: 1.5em;
+    border: 2px solid #1e90ff; /* Bordure bleue pour démarquer la réponse */
+    border-radius: 12px; /* Coins arrondis pour uniformité avec d'autres éléments */
+    background-color: #f0f8ff; /* Fond bleu pâle pour renforcer la lisibilité */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    font-size: 1.1em; /* Texte légèrement agrandi pour différencier la réponse */
+    font-weight: 500; /* Texte un peu plus épais pour souligner son importance */
+    line-height: 1.8; /* Espacement des lignes pour améliorer la lisibilité */
+    text-align: justify; /* Justifie le texte */
+}
+
+
+/* Lien Markdown */
+.stMarkdown a {
+    color: #2980b9; /* Bleu pour attirer l'attention sans être trop vif */
+    text-decoration: none; /* Supprime le soulignement */
+    transition: color 0.3s ease;
+}
+
+.stMarkdown a:hover {
+    color: #d35400; /* Orange au survol pour plus d'interaction visuelle */
+    text-decoration: underline; /* Ajout de soulignement au survol */
+}
+
+/* Champs de saisie */
+input[type="text"], textarea {
+    width: 100%;
+    padding: 15px;
+    font-size: 1em;
+    border: 2px solid #bdc3c7; /* Bordure gris clair */
+    border-radius: 8px; /* Coins arrondis */
+    background-color: #ffffff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Ombre discrète */
+}
+
+input[type="text"]:focus, textarea:focus {
+    border-color: #3498db; /* Bordure bleue en mode focus */
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.3); /* Effet lumineux bleu */
+    outline: none; /* Supprime le contour par défaut */
+}
+
+/* Boutons */
+.stButton button {
+    background-color: #2980b9; /* Bleu élégant */
+    color: #ffffff;
+    font-size: 1em;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+}
+
+.stButton button:hover {
+    background-color: #21618c; /* Bleu plus foncé au survol */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Accentuation de l'ombre */
+    transform: translateY(-2px); /* Effet de soulèvement */
+}
+
+/* Historique des conversations (expander) */
+.stExpander {
+    margin-top: 2em;
+    border: 1px solid #bdc3c7;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.stExpander > div {
+    padding: 1em;
+    background-color: #f9f9f9;
+}
+
+/* Texte des messages dans l'historique */
+.stExpander .stMarkdown {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #2c3e50;
+}
+
+/* Animation pour les transitions des sections */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.response-box, .question-box {
+    animation: fadeIn 0.4s ease-in-out;
+}
