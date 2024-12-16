@@ -17,20 +17,6 @@ def load_text_data():
                     texts[file] = " ".join(df["Content"].dropna())
             except Exception as e:
                 print(f"Erreur lors du chargement de {file}: {e}")
-
-    # Charger les fichiers Word
-    for file in os.listdir(WORD_DIRECTORY):
-        if file.endswith(".docx"):
-            word_path = os.path.join(WORD_DIRECTORY, file)
-            try:
-                doc = Document(word_path)
-                full_text = []
-                for para in doc.paragraphs:
-                    full_text.append(para.text)
-                texts[file] = " ".join(full_text)  # Joindre le texte des paragraphes
-            except Exception as e:
-                print(f"Erreur lors du chargement de {file}: {e}")
-
     return texts
 
 def save_text_for_faiss():
