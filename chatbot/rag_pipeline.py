@@ -120,7 +120,7 @@ def route_query(query, subjects=None):
             "neutralité du net", "fournisseurs d'accès internet", "fréquences radio",
             "protection des données personnelles", "autorités de régulation",
             "normes de qualité", "infractions réglementaires", "amendes",
-            "accords internationaux"
+            "accords internationaux", "aggréments", "équipements", "radioélectrique"
         ]
     for subject in subjects:
         if subject in query.lower():
@@ -139,22 +139,41 @@ def get_cached_answer(question, context=None):
 
 def generate_answer_with_gemini(question, context):
     """
-    Génère une réponse détaillée en utilisant l'API Gemini avec un contexte donné.
-    Ce contexte est adapté aux questions sur la réglementation des télécoms.
+    Génère une réponse détaillée et chiffrée en utilisant l'API Gemini avec un contexte donné.
+    L'expert fournit des informations chiffrées et cite des décisions, lois, réglementations ou arrêtés pertinents de l'ARCEP.
     """
     try:
         model = genai.GenerativeModel("gemini-1.5-flash")
+        # Prompt amélioré pour guider Gemini
         prompt = (
-            f"Vous êtes un expert en réglementation télécom et droit des télécommunications au Burkina Faso. "
-            f"Répondez de manière professionnelle et précise.\n\n"
-            f"Contexte : {context}\n\n"
-            f"Question : {question}\n\n"
-            f"Réponse :"
+            "Vous êtes un expert reconnu en réglementation télécom, droit des télécommunications, et politiques publiques "
+            "au Burkina Faso. Vous êtes spécialisé dans les sujets couverts par l'ARCEP et votre rôle est d'informer "
+            "avec des réponses :\n"
+            "1. **Claires et structurées**, adaptées à une audience technique et légale.\n"
+            "2. **Chiffrées**, avec des statistiques, données réelles et des comparaisons lorsque possible.\n"
+            "3. **Documentées**, en citant des sources officielles telles que des décisions, arrêtés, lois ou directives "
+            "pertinentes de l'ARCEP, incluant les références exactes.\n\n"
+            "### Instructions spécifiques :\n"
+            "Si le contexte est insuffisant, précisez quelles informations supplémentaires sont nécessaires pour fournir "
+            "une réponse complète.\n\n"
+            f"### Contexte disponible :\n{context}\n\n"
+            f"### Question posée :\n{question}\n\n"
+            "### Réponse complète de l'expert :\n"
         )
+
+        # Génération du contenu
         response = model.generate_content(prompt)
-        return response.text.strip()
+
+        # Vérification que le modèle a bien produit une réponse
+        if response and hasattr(response, "text"):
+            return response.text.strip()
+        else:
+            return "La réponse générée est vide. Veuillez reformuler la question ou vérifier le contexte."
+
     except Exception as e:
-        return f"Erreur avec Gemini : {str(e)}"
+        # Gestion détaillée des erreurs
+        print(f"Erreur lors de la génération avec Gemini : {e}")
+        return "Une erreur est survenue lors de la génération de la réponse. Veuillez réessayer ou vérifier vos paramètres."
 
 
 ### --- Étape Finale : Pipeline Complet --- ###
