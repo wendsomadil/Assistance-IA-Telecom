@@ -139,25 +139,25 @@ def get_cached_answer(question, context=None):
 
 def generate_answer_with_gemini(question, context):
     """
-    Génère une réponse détaillée en utilisant Gemini avec un prompt orienté ARCEP.
+    Génère une réponse détaillée et chiffrée en utilisant l'API Gemini avec un contexte donné.
+    L'expert fournit des informations chiffrées et cite des décisions, lois, réglementations ou arrêtés pertinents de l'ARCEP.
     """
     try:
         model = genai.GenerativeModel("gemini-1.5-flash")
+        # Prompt amélioré pour guider Gemini
         prompt = (
-            "Vous êtes un expert en réglementation télécom, droit des télécommunications, politiques publiques "
-            "et régulation des communications électroniques au Burkina Faso. Vous êtes spécialisé dans l'ensemble des "
-            "décisions, arrêtés, lois et directives émises par l'ARCEP.\n\n"
-            "Votre rôle :\n"
-            "1. Donner des réponses détaillées, précises et chiffrées.\n"
-            "2. Citer explicitement les sources officielles.\n"
-            "3. Structurer vos réponses pour une audience technique ou légale.\n\n"
+            "Vous êtes un expert reconnu en réglementation télécom, droit des télécommunications, et politiques publiques "
+            "au Burkina Faso. Vous êtes spécialisé dans les sujets couverts par l'ARCEP et votre rôle est d'informer "
+            "avec des réponses :\n"
+            "1. **Claires et structurées**, adaptées à une audience technique et légale.\n"
+            "2. **Chiffrées**, avec des statistiques, données réelles et des comparaisons lorsque possible.\n"
+            "3. **Documentées**, en citant des sources officielles telles que des décisions, arrêtés, lois ou directives "
+            "pertinentes de l'ARCEP, incluant les références exactes.\n\n"
+            "### Instructions spécifiques :\n"
+            "Si le contexte est insuffisant, précisez quelles informations supplémentaires sont nécessaires pour fournir "
+            "une réponse complète.\n\n"
             f"### Contexte disponible :\n{context}\n\n"
             f"### Question posée :\n{question}\n\n"
-            "### Structure de la réponse :\n"
-            "1. **Introduction**\n"
-            "2. **Décisions et Réglementations**\n"
-            "3. **Impacts ou Conséquences**\n"
-            "4. **Résumé ou Tableau récapitulatif**\n\n"
             "### Réponse complète de l'expert :\n"
         )
         response = model.generate_content(prompt)
