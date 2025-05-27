@@ -17,3 +17,4 @@ PyMuPDF
 pytesseract
 pdfplumber
 python-docx
+gtts
