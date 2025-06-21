@@ -1,0 +1,185 @@
+/* styles.css */
+
+/* === Variables de thème === */
+:root {
+  --primary-color: #1e3a5f;
+  --accent-color: #3498db;
+  --bg-color: #f5f7fa;
+  --text-color: #2c3e50;
+  --hover-shadow: rgba(0, 0, 0, 0.15);
+}
+
+/* === Navigation réduite pour motions sensibles === */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* === Base === */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 1rem;
+    line-height: 1.6;
+}
+
+/* === Titres === */
+h1.main-title {
+    text-align: center;
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+h2.subtitle {
+    text-align: center;
+    font-size: 1.25rem;
+    color: #34495e;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+}
+
+/* === En-tête logos === */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.header-container img {
+  height: 40px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+.header-container img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px var(--hover-shadow);
+}
+
+/* === Boîtes de chat === */
+.chat-container {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+}
+.avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+.bubble {
+    padding: 0.75rem 1rem;
+    border-radius: 16px;
+    max-width: 70%;
+    font-size: 1rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.bubble.user {
+    background-color: #e0f2fe;
+    color: var(--text-color);
+    align-self: flex-end;
+}
+.bubble.bot {
+    background-color: #f1f5f9;
+    color: var(--text-color);
+}
+
+/* === Formulaires et boutons === */
+input[type="text"], textarea {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #bdc3c7;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+input:focus, textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 6px rgba(52,152,219,0.3);
+    outline: none;
+}
+button, .stButton button {
+    background-color: var(--accent-color) !important;
+    color: #fff !important;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 0.75rem 1.5rem !important;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+button:hover, .stButton button:hover {
+    background-color: #2563eb !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* === Spinners et indicateurs === */
+.typing-indicator {
+    display: inline-flex;
+    align-items: center;
+    background: #e0e0e0;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+.typing-indicator span {
+    display: inline-block;
+    margin: 0 2px;
+    width: 6px;
+    height: 6px;
+    background: #555;
+    border-radius: 50%;
+    animation: blink 1.4s infinite both;
+}
+.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+/* === Animations clés === */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes blink {
+    0%, 80%, 100% { opacity: 0; transform: scale(0.7); }
+    40% { opacity: 1; transform: scale(1); }
+}
+
+/* === Expander historique === */
+.stExpander {
+    border: 1px solid #bdc3c7;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: box-shadow 0.3s ease;
+    margin: 1.5rem 0;
+}
+.stExpander:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* === Responsive === */
+@media screen and (max-width: 768px) {
+    .header-container, .chat-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .bubble { max-width: 90%; }
+    h1.main-title { font-size: 2rem; }
+    h2.subtitle { font-size: 1rem; }
+}
