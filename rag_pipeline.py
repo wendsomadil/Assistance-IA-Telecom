@@ -118,7 +118,7 @@ def get_cached_answer(question, context=None):
 
 def generate_answer_with_gemini(question, context):
     try:
-        model = genai.GenerativeModel("gemini-1.5-flash")
+        model = genai.GenerativeModel('gemini-2.5-flash')
         prompt = (
             "Vous êtes un expert reconnu en réglementation télécom, droit des télécommunications, et politiques publiques "
             "au Burkina Faso. Vous êtes spécialisé dans les sujets couverts par l'ARCEP et votre rôle est d'informer "
