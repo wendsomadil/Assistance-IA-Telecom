@@ -143,7 +143,7 @@ def generate_answer_with_gemini(question, context):
     L'expert fournit des informations chiffrées et cite des décisions, lois, réglementations ou arrêtés pertinents de l'ARCEP.
     """
     try:
-        model = genai.GenerativeModel("gemini-1.5-flash")
+        model = genai.GenerativeModel('gemini-2.5-flash')
         # Prompt amélioré pour guider Gemini
         prompt = (
             "Vous êtes un expert reconnu en réglementation télécom, droit des télécommunications, et politiques publiques "
